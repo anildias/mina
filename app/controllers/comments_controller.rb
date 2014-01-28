@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   
   def index
-    @comments = Comment.all
+    @comments = Comment.order('id desc').all.reverse
   end
 
   def create
@@ -12,4 +12,7 @@ class CommentsController < ApplicationController
     redirect_to comments_path
   end
 
+  def destroy
+    p @comments
+  end
 end
